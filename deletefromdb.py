@@ -7,6 +7,7 @@ cur.execute("DELETE FROM users WHERE lname='Фамилия3';")
 conn.commit()
 print('Данные удалены')
 
+
 # Если затем сделать следующей запрос:
 cur.execute("select * from users where lname='Фамилия3'")
 print(cur.fetchall())

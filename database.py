@@ -29,12 +29,27 @@ cur = conn.cursor()
 
 # Создаем таблицы в нашей БД
 # начнем с таблицы пользователей users
-cur.execute("""CREATE TABLE IF NOT EXISTS users(
-   userid INT PRIMARY KEY,
-   fname TEXT,
-   lname TEXT,
-   gender TEXT,
-   usertype TEXT);
+
+cur.execute("""CREATE TABLE IF NOT EXISTS statement(
+   key TEXT PRIMARY KEY,
+   name TEXT,
+   type TEXT,
+   value REAL,
+   date TEXT,
+   version_date TEXT,
+   version_name TEXT
+   );
+""")
+conn.commit()
+cur.execute("""CREATE TABLE IF NOT EXISTS vehicles(
+   inv_key TEXT PRIMARY KEY,
+   inv_name TEXT,
+   inv_type TEXT,
+   value REAL,
+   date TEXT,
+   version_date TEXT,
+   version_name TEXT
+   );
 """)
 conn.commit()
 print("Таблица users создана")
@@ -47,13 +62,13 @@ print("Таблица users создана")
 # Сохраняем изменения с помощью функции commit для объекта соединения.
 
 # Создадим для примера таблицу с действиями пользователей
-cur.execute("""CREATE TABLE IF NOT EXISTS useractions(
-    actionid INT PRIMARY KEY,
-    date TEXT,
-    userid INT,
-    action TEXT);
-""")
-conn.commit()
-print("Таблица useractions создана")
+# cur.execute("""CREATE TABLE IF NOT EXISTS useractions(
+#     actionid INT PRIMARY KEY,
+#     date TEXT,
+#     userid INT,
+#     action TEXT);
+# """)
+# conn.commit()
+# print("Таблица useractions создана")
 # В результате мы получили базу данных с двумя таблицами, хранящими данные о юзерах и о действиях юзеров
 # Данные таблицы являются примером.
